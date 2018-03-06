@@ -19,3 +19,6 @@ const RegistrationProcessSchema = new schema({
 
 });
 
+const  RegistrationProcess  =  mongoose.model('registrationprocess',RegistrationProcessSchema);
+
+module.exports =    RegistrationProcess;
