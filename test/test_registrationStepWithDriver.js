@@ -17,7 +17,6 @@ describe('Registration Step Verfication',()=>{
         };
 
          registrationStep.RunStep(stepName,driver).then((result)=>{
-
             assert(result.status);
           done();
         });
