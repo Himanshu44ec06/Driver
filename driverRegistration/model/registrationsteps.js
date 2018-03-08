@@ -1,5 +1,4 @@
-// @ts-check
-'use strict'
+'use strict';
 //  use to define  registration steps  
 
 const  mongoose  = require('mongoose');
@@ -44,7 +43,7 @@ const  RegistrationStepSchema =  new schema({
             message  : 'Step CompletedBy is  incorrect  format'
         }
     },
-    Input : [   //  Input  expected  onto step
+    Inputs : [   //  Input  expected  onto step
         {
             InputType :  {
                 type: Number,
@@ -57,11 +56,35 @@ const  RegistrationStepSchema =  new schema({
                 ],
                 require :  [true, 'Input Type is  required'],
             },
+            InputFormat : {
+                type: Number,
+                enum : [
+                    0, // TEXT
+                    1, //  Number
+                    2, // DATE
+                ]
+            },
+            InputName  : {
+                type:  String,
+                require :  [true, 'Input Name is  required'],
+            }
+            ,
             IsOptional :  {
                 type:  Boolean,
                 default : false
             },
-            DefaultOptions  : []
+            DefaultOptions  : [],
+            PassCriteria : [
+                {
+                    Function :  {
+                        type:  String
+                    },
+                    CompareValue : {
+                        type :  Object
+                    }
+
+                }
+            ]
         }
     ]
 

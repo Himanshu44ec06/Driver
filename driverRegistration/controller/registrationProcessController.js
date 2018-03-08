@@ -7,7 +7,7 @@ const  RegistrationProcessController  =  (function(){
     var controller =  {};
 
     controller.Add =  function(registrationProcess){
-        return RegistrationProcess.remove({}).then(()=>{
+        return RegistrationProcess.drop().then(()=>{
            return registrationProcess.save();
          });
     };

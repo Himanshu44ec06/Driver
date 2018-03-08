@@ -16,7 +16,12 @@ beforeEach((done)=>{
 
     //  truncating  data from  collection  
     //  to have  fresh  data
-    const  { } =  mongoose.connection.collections;
-     done();
+
+    const  { drivers,registrationsteps } =  mongoose.connection.collections;
+
+    drivers.drop( ()=>{
+             done();
+    });
+
 
 });

@@ -9,12 +9,16 @@ const  RegistrationStepController  =  (function(){
     var controller =  {};
 
     //  Currently  not in  use 
-    controller.AddNew =  function(RegistrationStep){
-            return  RegistrationStep.save();
+    controller.AddNew =  function(registrationStep){
+            return  registrationStep.save();
     }
 
     controller.GetAll =  function(){
         return  RegistrationStep.find({});
+    }
+
+    controller.GetByName =  function (stepname) {
+         return  RegistrationStep.findOne({StepName :  stepname});
     }
 
     return  controller;
